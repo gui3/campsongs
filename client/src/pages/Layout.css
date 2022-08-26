@@ -33,11 +33,11 @@
 .page {
     flex: 1;
     overflow-y: auto;
-    border: 2px solid #322;
+    border: 2px solid var(--color-primary, #944);
     position: relative;
 }
 
-/* large screens */
+/* medium and widther screens */
 @media (min-width: 650px) {
     .application {
         flex-direction: row-reverse;

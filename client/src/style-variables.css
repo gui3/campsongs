@@ -7,4 +7,9 @@
   --color-primary: #944;
   --color-interactive-dark: #535bf2;
   --color-interactive-light: #747bff;
+
+  /* media queries values */
+  /* only for developper information (unusable in media queries) */
+  --min-width-medium: 650px;
+  --min-width-large: 950px;
 }

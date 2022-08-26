@@ -7,7 +7,7 @@ import LogoFire from '../components/LogoFire'
 export default function About () {
     return (
         <div className="center-items">
-            <article className="About">
+            <article className="About responsive-padding">
                 <h1>About...</h1>
                 <section>
                     <h2>...this website</h2>
@@ -28,6 +28,18 @@ export default function About () {
                 <section>
                     <h2>...{"&"} technologies we used</h2>
                     <p>
+                        Bla bla bla
+                        Bla bla bla
+                        Bla bla bla
+                        Bla bla bla
+                        Bla bla bla
+                        Bla bla bla
+                        Bla bla bla
+                        Bla bla bla
+                        Bla bla bla
+                        Bla bla bla
+                        Bla bla bla
+                        Bla bla bla
                         Bla bla bla
                     </p>
                     <div>

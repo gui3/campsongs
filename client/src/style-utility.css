@@ -46,3 +46,20 @@
 .big {
   font-size: 2em;
 }
+
+.responsive-padding {
+  /* mobile first */
+  padding: 0 1em;
+}
+
+@media (min-width: 650px) {
+  .responsive-padding {
+    padding: 0 4em;
+  }
+}
+
+@media (min-width: 950px) {
+  .responsive-padding {
+    padding: 0 7em;
+  }
+}
