@@ -1,0 +1,23 @@
+{
+  "name": "songbook-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/main.js",
+    "knex": "knex",
+    "prod-test-db": "node ./tests/test_db_prod.js",
+    "prod-migrate": "knex migrate:latest --env production",
+    "prod-start": "npm start -- --prod"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "knex": "^2.2.0",
+    "pg": "^8.8.0",
+    "sqlite3": "^5.0.11"
+  }
+}

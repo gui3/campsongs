@@ -1,0 +1,48 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.application {
+    flex: 1;
+    display: flex;
+    justify-content: stretch;
+    position: relative;
+    /* mobile first */
+    flex-direction: column;
+    min-height: 0;
+}
+
+/*
+.application > * {
+    flex: 1;
+    overflow-y: auto;
+}
+*/
+
+.browser { /* Aside */
+    flex: 1;
+    overflow-y: auto;
+    min-height: 250px;
+}
+
+.page {
+    flex: 1;
+    overflow-y: auto;
+    border: 2px solid #322;
+}
+
+/* large screens */
+@media (min-width: 650px) {
+    .application {
+        flex-direction: row-reverse;
+    }
+
+    .browser {
+        min-width: 300px;
+        max-width: 300px;
+    }
+}

@@ -1,0 +1,38 @@
+#flames-top path {
+    animation: 1.5s ease infinite alternate flames-rotate;
+    animation: 1.24s ease infinite alternate-reverse flames-skew;
+    animation: 0.3s ease infinite alternate flames-scale;
+}
+
+#flames-bottom path {
+    animation: 2.7s ease infinite alternate-reverse flames-rotate;
+    animation: 0.86s ease infinite alternate flames-skew;
+    animation: 1.07s ease infinite alternate-reverse flames-scale;
+}
+
+@keyframes flames-rotate {
+    from {
+        transform: rotate(2deg);
+    }
+    to {
+        transform: rotate(-2deg);
+    }
+}
+
+@keyframes flames-skew {
+    from {
+        transform: skew(3deg);
+    }
+    to {
+        transform: skew(-3deg);
+    }
+}
+
+@keyframes flames-scale {
+    from {
+        transform: scale(0.99);
+    }
+    to {
+        transform: scale(1.01);
+    }
+}

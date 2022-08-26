@@ -1,0 +1,20 @@
+{
+  "name": "songbook",
+  "description": "",
+  "scripts": {
+    "start": "cd server && npm start",
+    "build": "cd client && npm run build",
+    "install": "cd client && npm install && cd ../server && npm install",
+    "dev-client": "cd client && npm run dev",
+    "dev-setup": "cd server && npm run knex migrate:up",
+    "dev-start": "npm run build && npm run start",
+    "prod-test-db": "cd server && npm run prod-test-db", 
+    "prod-setup": "cd server && npm run prod-migrate",
+    "prod-start": "npm run build && cd server && npm run prod-start"
+  },
+  "engines": {
+    "node": "16.x"
+  },
+  "author": "gui3",
+  "license": "GPL-3.0-or-later"
+}
