@@ -2,8 +2,8 @@ import LogoFire from "./LogoFire";
 
 export default function Wait (props) {
     return (
-        <div className="opaque fullsize center-items">
-            <div className="">
+        <div className="opaque fullsize center-items center-text">
+            <div>
                 <LogoFire dynamic={props.dynamic} 
                 size={props.logoSize} />
                 <p className="big">

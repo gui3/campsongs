@@ -4,7 +4,7 @@ import { routes } from "../Router"
 
 export default function Navigation () {
     return (
-        <nav>
+        <nav className="center-text">
             <ul>
                 {routes.map(route => !route.secret && <li>
                     <Link to={route.path}>{route.name}</Link>
