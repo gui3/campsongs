@@ -7,9 +7,13 @@ export default function App() {
     browserHidden: true
   }
 
-  const [ready, setReady] = useState(false)
-  setTimeout(_ => setReady(true), 500)
 
-  if (ready) return <Router session={session} />
-  else return <Wait dynamic logoSize="18em"/>
+  const [ready, setReady] = useState(false)
+  setTimeout(_ => setReady(true), 0)
+
+  console.log(ready)
+  return <>
+    {ready && <Router session={session} />}
+    <Wait hidden={ready} logoSize="18em"/>
+  </>
 }

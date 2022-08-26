@@ -1,0 +1,14 @@
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: var(--color-dark, #213547);
+    background-color: var(--color-lightest, #ffffff);
+  }
+  a:hover {
+    color: var(--color-interactive-light, #747bff);
+  }
+  button {
+    background-color: var(--color-lightest, #f9f9f9);
+    color: var(--color-dark, #213547);
+  }
+}

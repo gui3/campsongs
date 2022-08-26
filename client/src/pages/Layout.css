@@ -27,12 +27,14 @@
     flex: 1;
     overflow-y: auto;
     min-height: 250px;
+    position: relative;
 }
 
 .page {
     flex: 1;
     overflow-y: auto;
     border: 2px solid #322;
+    position: relative;
 }
 
 /* large screens */

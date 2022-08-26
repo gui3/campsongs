@@ -1,8 +1,16 @@
+import { useState } from "react";
 import LogoFire from "./LogoFire";
 
 export default function Wait (props) {
-    return (
-        <div className="opaque fullsize center-items center-text">
+    const [hidden, setHidden] = useState(false)
+    
+    const fading = !hidden && props.hidden
+    let className = "opaque center-items center-text"
+    if (fading) className += " fade out"
+
+    if (!hidden) return (
+        <div className={className}
+        onTransitionEnd={_ => setHidden(true)}>
             <div>
                 <LogoFire dynamic={props.dynamic} 
                 size={props.logoSize} />

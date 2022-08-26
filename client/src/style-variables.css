@@ -1,0 +1,10 @@
+/* variables */
+:root {
+  --color-light: #fec;
+  --color-lightest: #fff;
+  --color-dark: #242424;
+  --color-darkest: #1e1e1e;
+  --color-primary: #944;
+  --color-interactive-dark: #535bf2;
+  --color-interactive-light: #747bff;
+}

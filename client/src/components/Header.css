@@ -7,12 +7,12 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    _border-bottom: 2px solid #500;
+    _border-bottom: 2px solid var(--color-primary, #944);
 }
 
 .sitename {
     font-family: cursive;
     font-size: 1.3em;
     font-weight: bold;
-    color: #500;
+    color: var(--color-primary, #944);
 }
