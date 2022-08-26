@@ -32,11 +32,11 @@ export const routes = [
     //element: <Home />
   }, {
     name: "About",
-    path: "about",
+    path: "/about",
     //element: <About />
   }, {
     name: "Contact",
-    path: "contact",
+    path: "/contact",
     //element: <Contact />
   }, {
     name: "?",
