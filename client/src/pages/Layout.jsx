@@ -24,7 +24,7 @@ const Layout = (props) => {
       <div className="application">
         <Aside session={session} 
         hidden={hidden}/>
-        <main className="page">
+        <main className="page bg-strong">
           <Outlet />
         </main>
       </div>

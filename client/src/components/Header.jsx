@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export default function Header (props) {
 
     return (
-        <header>
+        <header className="Header bg-smooth">
             <Link to="/">
                 <span className="sitename">Fireplace</span>
             </Link>

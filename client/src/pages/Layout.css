@@ -23,7 +23,7 @@
 }
 */
 
-.browser { /* Aside */
+.browser { /* from Aside component */
     flex: 1;
     overflow-y: auto;
     min-height: 250px;
@@ -33,7 +33,7 @@
 .page {
     flex: 1;
     overflow-y: auto;
-    border: 2px solid var(--color-primary, #944);
+    outline: 2px solid var(--color-dark, #333);
     position: relative;
 }
 

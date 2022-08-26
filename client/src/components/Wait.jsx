@@ -5,7 +5,7 @@ export default function Wait (props) {
     const [hidden, setHidden] = useState(false)
     
     const fading = !hidden && props.hidden
-    let className = "opaque center-items center-text"
+    let className = "opaque center-items center-text bg-smooth"
     if (fading) className += " fade out"
 
     if (!hidden) return (

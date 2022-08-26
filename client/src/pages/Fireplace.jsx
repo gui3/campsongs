@@ -4,7 +4,7 @@ import Navigation from "../components/Navigation"
 
 
 export default function Fireplace () {
-    return <Wait dynamic logoSize="15em" 
+    return <Wait dynamic logoSize="15em"
     text="Aren't we cool here ?">
         <Navigation />
     </Wait>

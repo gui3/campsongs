@@ -7,8 +7,11 @@
   a:hover {
     color: var(--color-interactive-light, #747bff);
   }
-  button {
-    background-color: var(--color-lightest, #f9f9f9);
-    color: var(--color-dark, #213547);
+
+  .bg-smooth {
+    background-color: var(--color-lighter, #fff5ee);
+  }
+  .bg-strong {
+    background-color: var(--color-lightest, #fff);
   }
 }
