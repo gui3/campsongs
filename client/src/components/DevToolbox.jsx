@@ -44,19 +44,22 @@ by clicking "report" in the dev toolbox
                     <div 
                     className="click-on context-dialog bg-strong dev-screen">
                         <h3>Developper Toolbox</h3>
-                        <nav>
-                            <ul>
-                                <li>
-                                    <Tool action={toggleDebugMode}
-                                    name={"Debug Mode : " + debug}/>
-                                </li>
-                                <li>
-                                    <Tool 
-                                    action={_ => log.debug("hello in debug mode")}
-                                    name={"test debug"}/>
-                                </li>
-                            </ul>
-                        </nav>
+                        <ul>
+                            <li>
+                                <Tool action={toggleDebugMode}
+                                name={"debug mode : " + debug}/>
+                            </li>
+                            <li>
+                                <Tool 
+                                action={_ => log.debug("hello in debug mode")}
+                                name={"test debug"}/>
+                            </li>
+                            <li>
+                                <Tool 
+                                action={_ => console.log("LOG HISTORY:", log.history)}
+                                name={"log history"}/>
+                            </li>
+                        </ul>
                     </div>
                 )}
                 <button 
