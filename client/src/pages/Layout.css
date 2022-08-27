@@ -23,7 +23,7 @@
 }
 */
 
-.browser { /* from Aside component */
+.panel { /* from Panel component */
     flex: 1;
     overflow-y: auto;
     min-height: 250px;

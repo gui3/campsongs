@@ -1,29 +1,28 @@
 import { Outlet } from "react-router-dom";
 import { useState } from "react";
 import Header from "../components/Header";
-import Aside from "../components/Aside";
-import Notice from "../components/Notice"
+import Panel from "../components/Panel";
 import "./Layout.css"
 
 const Layout = (props) => {
   const session = props.session
 
-  const [hidden, setHidden] = useState(
+  const [hiddenPanel, setHiddenPanel] = useState(
     props.session && props.session.browserHidden
   )
 
-  function toggleBrowser () {
-    setHidden(!hidden)
+  function togglePanel () {
+    setHiddenPanel(!hiddenPanel)
   }
 
   return (
     <div className="container">
       <Header session={session} 
-      toggleBrowser={toggleBrowser}/>
+      togglePanel={togglePanel}/>
 
       <div className="application">
-        <Aside session={session} 
-        hidden={hidden}/>
+        <Panel session={session} 
+        hidden={hiddenPanel}/>
 
         <main className="page bg-strong">
           <Outlet />

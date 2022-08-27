@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Fireplace from "./pages/Fireplace";
+import Song from "./pages/Song";
 import Page404 from "./pages/404";
 
 export default function Router(props) {
@@ -14,6 +15,7 @@ export default function Router(props) {
       <Routes>
         <Route path="/" element={<Layout session={session}/>}>
           <Route index element={<Home session={session}/>} />
+          <Route path="song/:id" element={<Song session={session}/>} />
           <Route path="about" element={<About session={session}/>} />
           <Route path="contact" element={<Contact session={session}/>} />
           <Route path="fireplace" element={<Fireplace session={session}/>} />

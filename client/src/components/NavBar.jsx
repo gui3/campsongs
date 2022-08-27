@@ -11,7 +11,7 @@ export default function NavBar (props) {
                     name="Login"/>
                 </li>
                 <li>
-                    <Tool action={props.toggleBrowser} 
+                    <Tool action={props.togglePanel} 
                     name="Browser"/>
                 </li>
             </ul>

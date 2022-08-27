@@ -17,7 +17,7 @@ export default function Header (props) {
                     </Link>
                 </div>
             </div>
-            <NavBar toggleBrowser={props.toggleBrowser} />
+            <NavBar togglePanel={props.togglePanel} />
         </header>
     )
 }

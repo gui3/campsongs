@@ -1,11 +1,14 @@
 import { useState } from "react"
+import SongBrowser from "./SongBrowser"
 
 
-export default function Aside (props) {
+export default function Panel (props) {
     const session = props.session
 
     return (
-        <aside className={`Aside browser bg-smooth ${props.hidden ? "hidden" : ""}`}>
+        <aside className={`Aside panel bg-smooth ${props.hidden ? "hidden" : ""}`}>
+            <SongBrowser />
+            
             <p>hello</p>
             <p>hello</p>
             <p>hello</p>
