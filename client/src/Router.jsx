@@ -12,8 +12,7 @@ export default function Router(props) {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout session={session} 
-        userlogs={props.userlogs}/>}>
+        <Route path="/" element={<Layout session={session}/>}>
           <Route index element={<Home session={session}/>} />
           <Route path="about" element={<About session={session}/>} />
           <Route path="contact" element={<Contact session={session}/>} />

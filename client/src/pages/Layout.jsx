@@ -20,12 +20,11 @@ const Layout = (props) => {
     <div className="container">
       <Header session={session} 
       toggleBrowser={toggleBrowser}/>
-      {props.userlogs.map(log => (
-        <Notice log={log}/>
-      ))}
+
       <div className="application">
         <Aside session={session} 
         hidden={hidden}/>
+
         <main className="page bg-strong">
           <Outlet />
         </main>

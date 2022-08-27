@@ -1,29 +1,26 @@
 /**
  * creates a shareable instance of logger
  */
-/*
-import Logger from "./Logger";
+
 import CLIENT_CONFIG from "../CLIENT_CONFIG"
 
-export default new Logger(CLIENT_CONFIG.DEBUG_AT_START)
-*/
-
-import { DEBUG_AT_START } from "../CLIENT_CONFIG"
-
 const log = {
-    DEBUG_MODE: DEBUG_AT_START
+    DEBUG_MODE: CLIENT_CONFIG.DEV_MODE // will be set at startup
 }
 
+/** shows message only if DEBUG_MODE is true */
 log.debug = function (data) {
     log.DEBUG_MODE && console.log(data)
 }
 
-log.info = function (data) {
-    console.log(data)
+/** shows message anyways */
+log.info = function (data, ...css) {
+    console.log(data, ...css)
 }
 
-log.error = function (data) {
-    console.error(data)
+/** shows error anyway */
+log.error = function (data, ...css) {
+    console.error(data, ...css)
 }
 
 export default log

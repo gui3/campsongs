@@ -3,6 +3,7 @@ import Router from "./Router";
 import Wait from "./components/Wait";
 import { MetadataContext } from "./components/Contexts";
 import log from "./scripts/log"
+import DevToolbox from "./components/DevToolbox";
 
 
 async function wait (ms) {
@@ -33,7 +34,6 @@ export default function App() {
 
   const [ready, setReady] = useState(false)
   const [metadata, setMetadata] = useState({waiting: true})
-  const [userlogs, setUserlogs] = useState([])
 
   /* application setup, runs only once */
   useEffect(_ => {
@@ -44,31 +44,19 @@ export default function App() {
       // (async _ => {throw new Error("TEST ERROR - to be removed")})()
     ])
     .then(results => {
-      log.info("app setup successfull")
+      log.debug("app setup successfull")
       setReady(true)
     })
     .catch(error => {
-      console.error(error)
+      console.error(error) // not log.error, if error is with log
       setReady(true)
     })
   }, []) // empty dependance array = only once fired
 
-  /* userlogs update */
-  useEffect(_ => {
-    userlogs.forEach((log, index) => {
-      log.remove = () => {
-        // will update userlogs without the removed index
-        setUserlogs(
-          userlogs.slice(0, index)
-          .concat(userlogs.slice(index + 1))
-        )
-      }
-    })
-  }, [userlogs])
-
   return (
     <MetadataContext.Provider value={metadata}>
-      {ready && <Router session={session} userlogs={userlogs}/>}
+      <DevToolbox />
+      {ready && <Router session={session}/>}
       <Wait hidden={ready} logoSize="18em"/>
     </MetadataContext.Provider>
   )
