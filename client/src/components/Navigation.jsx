@@ -6,7 +6,7 @@ export default function Navigation () {
     return (
         <nav className="center-text">
             <ul>
-                {routes.map(route => !route.secret && <li>
+                {routes.map((route, ix) => !route.secret && <li key={ix}>
                     <Link to={route.path}>{route.name}</Link>
                 </li>
                 )}

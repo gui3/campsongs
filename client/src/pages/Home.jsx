@@ -1,35 +1,28 @@
 import { useState } from 'react'
-import reactLogo from '../assets/react.svg'
-import './Home.css'
-
-import LogoFire from '../components/LogoFire'
+import { MetadataContext } from '../components/Contexts'
+import log from '../scripts/log'
 
 function Home() {
   const [count, setCount] = useState(0)
 
   return (
-    <article className="Home center-text">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </article>
+    <div className="center-items">
+      <article className="Home responsive-padding">
+        <h1>
+          <MetadataContext.Consumer>
+            {metadata => metadata.APP_NAME || "loading..."}
+          </MetadataContext.Consumer>
+        </h1>
+        <div className="card">
+          <button onClick={() => setCount((count) => count + 1)}>
+            count is {count}
+          </button>
+          <button onClick={_ => log.debug("debut test")}>
+            DEV debug message
+          </button>
+        </div>
+      </article>
+    </div>
   )
 }
 

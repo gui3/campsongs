@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 import { useState } from "react";
 import Header from "../components/Header";
 import Aside from "../components/Aside";
-import {routes} from "../Router"
+import Notice from "../components/Notice"
 import "./Layout.css"
 
 const Layout = (props) => {
@@ -13,7 +13,6 @@ const Layout = (props) => {
   )
 
   function toggleBrowser () {
-    console.log(hidden)
     setHidden(!hidden)
   }
 
@@ -21,6 +20,9 @@ const Layout = (props) => {
     <div className="container">
       <Header session={session} 
       toggleBrowser={toggleBrowser}/>
+      {props.userlogs.map(log => (
+        <Notice log={log}/>
+      ))}
       <div className="application">
         <Aside session={session} 
         hidden={hidden}/>

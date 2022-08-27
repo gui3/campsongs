@@ -5,3 +5,5 @@
 ```
 heroku config:set NPM_CONFIG_PRODUCTION=false
 ```
+this allows vite to compile.
+A better solution is yet to be found

@@ -1,3 +1,3 @@
-const metadata = require("./metadata")
+const metadata = require("./getMetadata")
 
 console.log(metadata)
