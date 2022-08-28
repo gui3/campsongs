@@ -1,15 +1,14 @@
 const path = "/metadata"
 const method = "get"
 
-async function handler (req, res) {
+async function data (req, res) {
     const {metadata} = res.locals
     metadata.ENV = process.env.NODE_ENV
-    res.status(200)
-    res.json(metadata)
+    return metadata
 }
 
-module.exports = {
+export default {
     method,
     path,
-    handler
+    data
 }

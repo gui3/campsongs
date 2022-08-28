@@ -1,16 +1,17 @@
 const path = "/songs"
 const method = "get"
+const type = "SONGS"
 
-async function handler (req, res) {
+async function data (req, res) {
     const {db} = res.locals
 
     const songs = await db("songs")
-    res.status(200)
-    res.json(songs)
+    return songs
 }
 
 module.exports = {
     method,
     path,
-    handler
+    data,
+    type
 }

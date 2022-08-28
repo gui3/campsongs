@@ -17,14 +17,14 @@ async function fetchMetadata (setMetadata, log) {
     const response = await fetch("/api/metadata")
     const data = await response.json()
 
-    if (!data.IS_METADATA) throw new Error("invalid metadata")
-    setMetadata(data)
+    if (!data.valid) throw new Error("invalid metadata")
+    setMetadata(data.data)
   }
   catch (error) {
-    log.error("bug fetching app metadada, expect other bugs")
+    log.error("can't fetch metadata")
     return
   }
-  log.debug("success in fetching metadata")
+  log.debug("metadata fetched")
 }
 
 export default function App() {
@@ -38,10 +38,10 @@ export default function App() {
   /* application setup, runs only once */
   useEffect(_ => {
     log.debug("Debug mode is " + log.DEBUG_MODE)
+
     Promise.all([
       fetchMetadata(setMetadata, log),
       wait(100), // minimum splash screen time
-      // (async _ => {throw new Error("TEST ERROR - to be removed")})()
     ])
     .then(results => {
       log.debug("app setup successfull")

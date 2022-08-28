@@ -1,10 +1,10 @@
 // dependencies
-const express = require("express")
-const {resolve} = require("path")
+import express from "express"
+import { resolve } from "path"
 
-const apirouter = require("./api/router")
-const connect = require("../database/connect")
-const getMetadata = require("./getMetadata")
+import apirouter from "./api/router.mjs"
+import connect from "../database/connect.mjs"
+import getMetadata from "./getMetadata"
 
 function createServer () {
     const app = express()
@@ -78,4 +78,4 @@ function createServer () {
     }
 }
 
-module.exports = createServer
+export default createServer
