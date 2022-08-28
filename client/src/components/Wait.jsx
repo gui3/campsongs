@@ -13,8 +13,6 @@ export default function Wait (props) {
         if (fading) setClasses(classes + " fade out")
     }, [hidden, props.hidden])
 
-    console.log(classes)
-
     if (!hidden) return (
         <div className={classes}
         onTransitionEnd={_ => setHidden(true)}>
