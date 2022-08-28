@@ -4,6 +4,7 @@ import Tool from "./Tool";
 import log from "../scripts/log";
 import CLIENT_CONFIG from "../CLIENT_CONFIG";
 import { useEffect } from "react";
+import fetchData from "../scripts/fetchData";
 
 export default function DevToolbox (props) {
     const [devscreen, setDevscreen] = useState(false)
@@ -39,7 +40,7 @@ by clicking "report" in the dev toolbox
 
     const Screen = (
         <div 
-        className="click-on context-dialog bg-strong dev-screen">
+        className="dev-screen click-on context-dialog bg-strong">
             <h3>Developper Toolbox</h3>
             <ul>
                 <li>
@@ -67,18 +68,25 @@ by clicking "report" in the dev toolbox
                     action={_ => console.log("LOG HISTORY:", log.history)}
                     name={"log history > console"}/>
                 </li>
-                <hr/>
+
+                <hr/> {/* temporary tools */}
+
                 <li>
                     <Tool 
                     action={_ => log.debug("hello in debug mode")}
-                    name={"test debug"}/>
+                    name={"test log"}/>
+                </li>
+                <li>
+                    <Tool 
+                    action={_ => fetchData("/api/DEAD_END")}
+                    name={"bad request"}/>
                 </li>
             </ul>
         </div>
     )
 
     return CLIENT_CONFIG.DEV_MODE && (
-        <div className="click-through fullsize">
+        <div className="upfront click-through fullsize">
             <div className="position-absolute bottom right">
                 { devscreen && Screen}
                 <button 

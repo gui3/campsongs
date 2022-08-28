@@ -7,16 +7,16 @@
     height: 100%;
 }
 
-.dynamic #flames-top path {
-    animation: 1.5s ease infinite alternate flames-rotate;
-    animation: 1.24s ease infinite alternate-reverse flames-skew;
-    animation: 0.3s ease infinite alternate flames-scale;
+.dynamic .flames-top path {
+    animation: 1.5s linear infinite alternate flames-rotate;
+    animation: 1.24s linear infinite alternate-reverse flames-skew;
+    animation: 0.74s linear infinite alternate flames-scale;
 }
 
-.dynamic #flames-bottom path {
-    animation: 2.7s ease infinite alternate-reverse flames-rotate;
-    animation: 0.86s ease infinite alternate flames-skew;
-    animation: 1.07s ease infinite alternate-reverse flames-scale;
+.dynamic .flames-bottom path {
+    animation: 2.7s linear infinite alternate-reverse flames-rotate;
+    animation: 0.86s linear infinite alternate flames-skew;
+    animation: 1.07s linear infinite alternate-reverse flames-scale;
 }
 
 @keyframes flames-rotate {

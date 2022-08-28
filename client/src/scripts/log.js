@@ -26,21 +26,21 @@ log.register = CLIENT_CONFIG.DEV_MODE
 : function () {} // production = skip client log history
 
 /** shows message only if DEBUG_MODE is true */
-log.debug = function (data) {
-    log.DEBUG_MODE && console.log(data)
+log.debug = function (data, ...args) {
+    log.DEBUG_MODE && console.log(data, ...args)
     log.register(data)
 }
 
 /** shows message anyways */
-log.info = function (data, ...css) {
-    console.log(data, ...css)
-    log.register(data, css)
+log.info = function (data, ...args) {
+    console.log(data, ...args)
+    log.register(data, args)
 }
 
 /** shows error anyway */
-log.error = function (data, ...css) {
-    console.error(data, ...css)
-    log.register(data, css)
+log.error = function (data, ...args) {
+    console.error(data, ...args)
+    log.register(data, args)
 }
 
 export default log

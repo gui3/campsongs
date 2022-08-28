@@ -12,7 +12,7 @@ const CLIENT_CONFIG = {
      * uses fake data instead of api calls
      * !! only active in DEV_MODE
      */
-    USE_MOCK_DATA: true,
+    USE_MOCK_DATA: false,
 
     /**
      * will show debug messages at startup

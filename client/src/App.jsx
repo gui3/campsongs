@@ -6,6 +6,7 @@ import DevToolbox from "./components/DevToolbox";
 import log from "./scripts/log"
 import fetchData from "./scripts/fetchData";
 import wait from "./scripts/wait"
+import SplashScreen from "./components/SplashScreen";
 
 export default function App() {
   const session = {
@@ -13,7 +14,7 @@ export default function App() {
   }
 
   const [ready, setReady] = useState(false)
-  const [metadata, setMetadata] = useState()
+  const [metadata, setMetadata] = useState({})
   const [dev, setDev] = useState({
     ready, setReady,
     FORCE_SPLASH_SCREEN: false
@@ -34,8 +35,10 @@ export default function App() {
       async function fetchMetadata () {
         const json = await fetchData("/api/metadata")
         if (json.type !== "METADATA") {
-          log.info(json)
-          throw new Error("could not fetch metadata, see json above")
+          log.error(new Error("invalid metadata"))
+          log.debug("invalid data", json)
+          return 
+          //throw new Error("could not fetch metadata, see json above")
         }
         setMetadata(json.data)
       }
@@ -55,16 +58,14 @@ export default function App() {
     }
   }, [ready]) // empty dependance array = only once fired
 
-  console.log(ready, dev.FORCE_SPLASH_SCREEN)
   return (
     <MetadataContext.Provider value={metadata}>
 
-      <Wait hidden={!dev.FORCE_SPLASH_SCREEN && ready} 
-      logoSize="18em"/>
+      {ready && <Router session={session}/>}
+
+      <SplashScreen hidden={!dev.FORCE_SPLASH_SCREEN && ready} />
 
       <DevToolbox dev={dev}/>
-
-      {ready && <Router session={session}/>}
 
     </MetadataContext.Provider>
   )

@@ -53,6 +53,7 @@ export default function mock(path) {
         return mockRoutes[url.pathname].mock(url.searchParams)
     }
     catch (error) {
+        if (path === "/api/DEAD_END") throw error
         return mockRoutes.error(error)
     }
 }

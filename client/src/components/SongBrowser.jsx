@@ -12,12 +12,14 @@ export default function SongBrowser (props) {
     const [songs, setSongs] = useState([])
 
     useEffect(_ => {
+        log.debug("searching : " + research)
+
         const base = "https://base.url"
         const url = new URL("/api/songs/search", base)
         const path = url.pathname
         const params = url.searchParams
         params.append("text", research)
-        log.debug("searching " + path + "?" + params)
+
         fetchData(path + "?" + params)
         .then(data => data.type === "SONGS" && setSongs(data.data))
         .catch(error => log.error(error))
