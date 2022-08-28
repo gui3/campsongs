@@ -27,8 +27,15 @@ react waits for onTransitionEnd !!
 
 /* transitions */
 
+.fade {
+  transition: opacity 1640ms ease-in 0ms;
+}
+
+.fade.in {
+  opacity: 1
+}
+
 .fade.out {
   opacity: 0;
-  transition: opacity 1640ms ease-in 0ms;
   pointer-events: none; /* users can click through fading element */
 }

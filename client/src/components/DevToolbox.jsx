@@ -17,7 +17,7 @@ export default function DevToolbox (props) {
 
     /* DEV MODE console message */
     useEffect(_ => {
-        if (CLIENT_CONFIG.DEV_MODE) {
+        if (CLIENT_CONFIG.DEV_MODE && !props.dev.ready) {
             log.info(`
 %cDEV MODE ON
 
@@ -29,39 +29,50 @@ if you see this, please report
 by clicking "report" in the dev toolbox
 (button bottom right)
 `,
-                "font-size: 2em; font-weight: bold",
-                "font-size: 1.2em;",
-                "background: #000; color: #fff; font-family: monospace;",
-                "font-size: 1.2em;"
+                log.style.big,
+                log.style.text,
+                log.style.code,
+                log.style.text
             )
         }
-    }, [])
+    }, [props.dev.ready])
+
+    const Screen = (
+        <div 
+        className="click-on context-dialog bg-strong dev-screen">
+            <h3>Developper Toolbox</h3>
+            <ul>
+                <li>
+                    <Tool action={toggleDebugMode}
+                    name={"debug mode : " + debug}/>
+                </li>
+                <li>
+                    <Tool 
+                    action={_ => {
+                        log.info("%c>reboot", log.style.big)
+                        props.dev.setReady(!props.dev.ready)
+                    }}
+                    name={"client reboot"}/>
+                </li>
+                <li>
+                    <Tool 
+                    action={_ => console.log("LOG HISTORY:", log.history)}
+                    name={"log history > console"}/>
+                </li>
+                <hr/>
+                <li>
+                    <Tool 
+                    action={_ => log.debug("hello in debug mode")}
+                    name={"test debug"}/>
+                </li>
+            </ul>
+        </div>
+    )
 
     return CLIENT_CONFIG.DEV_MODE && (
         <div className="click-through fullsize">
             <div className="position-absolute bottom right">
-                { devscreen && (
-                    <div 
-                    className="click-on context-dialog bg-strong dev-screen">
-                        <h3>Developper Toolbox</h3>
-                        <ul>
-                            <li>
-                                <Tool action={toggleDebugMode}
-                                name={"debug mode : " + debug}/>
-                            </li>
-                            <li>
-                                <Tool 
-                                action={_ => log.debug("hello in debug mode")}
-                                name={"test debug"}/>
-                            </li>
-                            <li>
-                                <Tool 
-                                action={_ => console.log("LOG HISTORY:", log.history)}
-                                name={"log history"}/>
-                            </li>
-                        </ul>
-                    </div>
-                )}
+                { devscreen && Screen}
                 <button 
                 className="click-on"
                 onClick={_ => setDevscreen(!devscreen)}>

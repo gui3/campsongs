@@ -2,7 +2,7 @@
 import reactLogo from '../assets/react.svg'
 import viteLogo from '../assets/vite.svg'
 
-import LogoFire from '../components/LogoFire'
+import AppLogo from '../components/AppLogo'
 
 export default function About () {
     return (
@@ -14,7 +14,7 @@ export default function About () {
                     <p>
                         Bla bla bla
                     </p>
-                    <LogoFire dynamic size="128"/>
+                    <AppLogo dynamic size="128"/>
                 </section>
 
                 <section>

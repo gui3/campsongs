@@ -1,18 +1,25 @@
+import { useEffect } from "react";
 import { useState } from "react";
-import LogoFire from "./LogoFire";
+import AppLogo from "./AppLogo";
 
 export default function Wait (props) {
     const [hidden, setHidden] = useState(false)
-    
-    const fading = !hidden && props.hidden
-    let className = "opaque center-items center-text bg-smooth"
-    if (fading) className += " fade out"
+    const [classes, setClasses] = useState(
+        "opaque center-items center-text bg-smooth"
+    )
+
+    useEffect(_ => {
+        const fading = !hidden && props.hidden
+        if (fading) setClasses(classes + " fade out")
+    }, [hidden, props.hidden])
+
+    console.log(classes)
 
     if (!hidden) return (
-        <div className={className}
+        <div className={classes}
         onTransitionEnd={_ => setHidden(true)}>
             <div>
-                <LogoFire dynamic={props.dynamic} 
+                <AppLogo dynamic={props.dynamic} 
                 size={props.logoSize} />
                 <p className="big">
                     {props.text || "Wait by the fire"}

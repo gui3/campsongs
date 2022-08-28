@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom";
 import CLIENT_CONFIG from "../CLIENT_CONFIG"
+import fetchData from "../scripts/fetchData";
 import log from "../scripts/log"
 
 
@@ -11,9 +12,13 @@ export default function SongBrowser (props) {
     const [songs, setSongs] = useState([])
 
     useEffect(_ => {
-        log.debug("searching /api/songs/" + research)
-        fetch("/api/songs/" + research)
-        .then(response => response.json())
+        const base = "https://base.url"
+        const url = new URL("/api/songs/search", base)
+        const path = url.pathname
+        const params = url.searchParams
+        params.append("text", research)
+        log.debug("searching " + path + "?" + params)
+        fetchData(path + "?" + params)
         .then(data => data.type === "SONGS" && setSongs(data.data))
         .catch(error => log.error(error))
     }, [research])
@@ -37,13 +42,14 @@ export default function SongBrowser (props) {
                 <input type="text" placeholder="seach songs" 
                 value={status.text} 
                 onChange={onChange}
+                onKeyUp={e => (e.key === 'Enter' || e.keyCode === 13) && search()}
                 />
                 <button onClick={search}>search</button>
             </div>
             <ol>
-                {songs && songs.map && songs.map(song => {
+                {songs && songs.map && songs.map((song, ix) => {
                     return (
-                    <li>
+                    <li key={ix}>
                         <Link to={"/song/" + song.songName}>
                             <h4>{song.songName}</h4>
                             <p>{song.author}</p>

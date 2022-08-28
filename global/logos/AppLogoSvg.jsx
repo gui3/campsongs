@@ -1,10 +1,7 @@
-import reactLogo from '../assets/fireside.svg'
-import './LogoFire.css'
-
-function LogoFire(props) {
-
+export default function AppLogoSvg (props) {
     return (
-        <svg className={props.dynamic ? "dynamic" : ""} width={props.size || "128"} height={props.size || "128"} viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+//PASTE_SVG_HERE
+        <svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g id="fireside">
         <path id="glow" d="M21 39.5L33.5 20.5L70.5 4L95 25.5L103.5 50L97 75.5L93.5 96.5L61.5 102.5L26 91L21 68V39.5Z" fill="#FFFCF0" fill-opacity="0.25"/>
         <g id="wood">
@@ -17,15 +14,11 @@ function LogoFire(props) {
         </g>
         <g id="fire">
         <g id="flametongues">
-        <g id="flames-top">
         <path id="red-tr" d="M74 65.5L61 54L70.6667 39.5034L78.1935 25L87 39.5034L84.5 63L74 65.5Z" fill="#FF4400" fill-opacity="0.6"/>
         <path id="red-tl" d="M53.3333 72L62 55.7887L53.3333 39.5048L42.5806 19L39.5 23.5L37 53L53.3333 72Z" fill="#FF4400" fill-opacity="0.6"/>
-        </g>
         <path id="red-top" d="M48.5 42.5L37.5 75L63.5 97L84.5 64L69 30.5L66.9035 7L57 26L48.5 42.5Z" fill="#FF4400" fill-opacity="0.6"/>
-        <g id="flames-bottom">
         <path id="red-bl" d="M56.3553 94L70 67.5L60 57.5L25 39V57.5L36 86.5L56.3553 94Z" fill="#FF4400" fill-opacity="0.6"/>
         <path id="red-br" d="M65.4319 95L53 68.5L62.1111 58.5L94 40V58.5L83.9778 87.5L65.4319 95Z" fill="#FF4400" fill-opacity="0.6"/>
-        </g>
         </g>
         <path id="red-center" d="M93 82.2667L61.5 28.5L42 94H70.8553L93 82.2667Z" fill="#FF4400" fill-opacity="0.7"/>
         <path id="yellow" d="M88 69L62.5 91L50 61H71.5L88 69Z" fill="#FFCC00" fill-opacity="0.7"/>
@@ -33,7 +26,6 @@ function LogoFire(props) {
         </g>
         </g>
         </svg>
+//END_OF_SVG
     )
 }
-
-export default LogoFire

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import reactLogo from '../assets/react.svg'
 import './_template.css'
 
-import LogoFire from '../components/LogoFire'
+import AppLogo from '../components/AppLogo'
 
 function Home() {
   const [count, setCount] = useState(0)

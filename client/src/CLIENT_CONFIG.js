@@ -9,9 +9,21 @@ const CLIENT_CONFIG = {
     DEV_MODE: true,
 
     /**
+     * will show debug messages at startup
+     * ! prefer to use dev panel > debug mode on > client reboot
+     */
+    START_IN_DEBUG_MODE: false,
+
+    /**
      * logs history max length
      */
-    LOG_MEMORY: 100
+    LOG_MEMORY: 100,
+
+    /**
+     * uses fake data instead of api calls
+     * !! only active in DEV_MODE
+     */
+    USE_MOCK_DATA: true,
 }
 
 export default CLIENT_CONFIG

@@ -7,7 +7,13 @@ import CLIENT_CONFIG from "../CLIENT_CONFIG"
 const log = {
     history: [],
     memory: CLIENT_CONFIG.LOG_MEMORY,
-    DEBUG_MODE: CLIENT_CONFIG.DEV_MODE // will be set at startup
+    DEBUG_MODE: CLIENT_CONFIG.START_IN_DEBUG_MODE, // will be set at startup
+    // console quick styles:
+    style: {
+        big: "font-size: 2em; font-weight: bold",
+        text: "font-size: 1.2em;",
+        code: "background: #000; color: #fff; font-family: monospace;"
+    }
 }
 
 log.register = CLIENT_CONFIG.DEV_MODE

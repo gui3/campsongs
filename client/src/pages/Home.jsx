@@ -10,7 +10,7 @@ function Home() {
       <article className="Home responsive-padding">
         <h1>
           <MetadataContext.Consumer>
-            {metadata => metadata.APP_NAME || "loading..."}
+            {metadata => metadata.APP_NAME}
           </MetadataContext.Consumer>
         </h1>
         <div className="card">
