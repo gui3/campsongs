@@ -1,4 +1,8 @@
-.AppLogo svg {
+.AppLogo {
+    display: inline-block;
+}
+
+.AppLogo > svg {
     width: 100%;
     height: 100%;
 }

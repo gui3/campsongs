@@ -3,10 +3,12 @@ import './AppLogo.css'
 
 function AppLogo(props) {
 
+    const size = props.size || "5em"
+
     return (
         <span 
         className={"AppLogo" + (props.dynamic ? " dynamic" : "")}
-        style={{width: props.size || "128", height: props.size || "128"}}>
+        style={{width: size, height: size }}>
             <AppLogoSvg/>
         </span>
     )

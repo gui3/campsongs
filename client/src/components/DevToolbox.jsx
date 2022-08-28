@@ -56,6 +56,14 @@ by clicking "report" in the dev toolbox
                 </li>
                 <li>
                     <Tool 
+                    action={_ => props.dev.setDev({
+                        ...props.dev, 
+                        FORCE_SPLASH_SCREEN: !props.dev.FORCE_SPLASH_SCREEN
+                    })}
+                    name={"show splash screen : " + props.dev.FORCE_SPLASH_SCREEN}/>
+                </li>
+                <li>
+                    <Tool 
                     action={_ => console.log("LOG HISTORY:", log.history)}
                     name={"log history > console"}/>
                 </li>

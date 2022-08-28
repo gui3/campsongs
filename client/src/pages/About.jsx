@@ -14,7 +14,7 @@ export default function About () {
                     <p>
                         Bla bla bla
                     </p>
-                    <AppLogo dynamic size="128"/>
+                    <AppLogo dynamic size="6em"/>
                 </section>
 
                 <section>

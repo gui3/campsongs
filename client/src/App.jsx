@@ -14,10 +14,13 @@ export default function App() {
 
   const [ready, setReady] = useState(false)
   const [metadata, setMetadata] = useState()
-  const [dev, setDev] = useState({ready, setReady})
+  const [dev, setDev] = useState({
+    ready, setReady,
+    FORCE_SPLASH_SCREEN: false
+  })
 
   /** dev tools updates */
-  useEffect(_ => setDev({...dev, ready, setReady}), [ready])
+  useEffect(_ => setDev({...dev, ready, setReady, setDev}), [ready])
 
   /**
    * APP SETUP
@@ -35,12 +38,11 @@ export default function App() {
           throw new Error("could not fetch metadata, see json above")
         }
         setMetadata(json.data)
-        log.debug("metadata fetched")
       }
 
       Promise.all([
         fetchMetadata(setMetadata, log),
-        wait(100), // minimum splash screen time
+        wait(50), // minimum splash screen time
       ])
       .then(results => {
         log.debug("app setup successfull")
@@ -53,12 +55,17 @@ export default function App() {
     }
   }, [ready]) // empty dependance array = only once fired
 
+  console.log(ready, dev.FORCE_SPLASH_SCREEN)
   return (
     <MetadataContext.Provider value={metadata}>
-      <DevToolbox dev={dev}/>
-      {ready && <Router session={session}/>}
-      <Wait hidden={ready || dev.forceSplashScreen} 
+
+      <Wait hidden={!dev.FORCE_SPLASH_SCREEN && ready} 
       logoSize="18em"/>
+
+      <DevToolbox dev={dev}/>
+
+      {ready && <Router session={session}/>}
+
     </MetadataContext.Provider>
   )
 }
