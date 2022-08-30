@@ -1,4 +1,7 @@
 
+
+# important dev notes
+
 ## ! Heroku config modifications
 
 26/08/2022 this env variable has been set:

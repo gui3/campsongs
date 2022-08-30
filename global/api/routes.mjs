@@ -1,9 +1,5 @@
 export default [
     {
-        path: "/",
-        data: (req, res) => console.log("HELLO FROM ROUTE") || 1
-    },
-    {
         path: "/metadata",
         method: "GET",
         type: "CONFIG",
@@ -37,8 +33,11 @@ export default [
         method: "get",
         type: "SONGS",
         description: "Researches a song using querystring",
-        data: (req, res, next) => {
-            /** @TODO */
+        data: async (req, res, next) => {
+            const textToFind = req.query.text
+            const data = await res.locals.db("songs")
+            .whereLike("text", "%" + textToFind.replace(/\s/g, "%") + "%")
+            return data
         },
         mock: (samples, req, res) => {
             /** @TODO improve */
@@ -58,7 +57,7 @@ export default [
             if (!id) next(new Error("invalid id: " + id))
 
             const songs = await res.locals.db("songs")
-            .whereRaw("songId = ?", [req.params.id])
+            .where({songId: req.params.id})
         
             if (songs.length > 0) return songs[0] 
             throw new Error("No song with this id")

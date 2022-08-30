@@ -9,7 +9,11 @@
 
 ## articles
 
+> render react using express
 https://levelup.gitconnected.com/how-to-render-react-app-using-express-server-in-node-js-a428ec4dfe2b
+
+> sql search :
+https://ewbi.blogs.com/develops/2007/05/normalizing_sql.html
 
 ## project name
 

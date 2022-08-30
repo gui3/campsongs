@@ -11,7 +11,7 @@ export function error (err, keys={}) {
     }
 }
 
-export function data (data, type="JSON", keys={}) {
+export function data (data, type, keys={}) {
     return {
         valid: true,
         type,

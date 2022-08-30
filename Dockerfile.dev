@@ -1,0 +1,28 @@
+# syntax=docker/dockerfile:1
+# helps parser of older or newer versions
+
+# dev image
+# usefull commands:
+#   docker build --file Dockerfile.dev --tag songbook:DEV .
+#   docker run --rm --env-file ./server/.env --name songbook_dev songbook:DEV
+#   docker stop songbook_dev
+#   docker rmi songbook:DEV
+
+FROM node:16-alpine
+# https://hub.docker.com/_/node/
+# list of all node images
+
+ENV NODE_ENV=development
+
+WORKDIR /app
+# allows relative paths
+
+COPY . .
+
+RUN ./scripts/setup.sh
+RUN NODE_ENV=development ./scripts/danger/seed.sh
+RUN ./scripts/build.sh
+
+EXPOSE 8080:8080
+
+CMD ["./scripts/start.sh"]

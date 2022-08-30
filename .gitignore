@@ -1,4 +1,4 @@
-# hand written
+# HAND-WRITTEN
 
 .env
 .env*.local
@@ -7,9 +7,16 @@ node_modules/
 package-lock.json
 
 *.sqlite3
+*.log
+
+.vscode
+
+# ! to be included in container images
+
+dist
 
 
-# github generated :
+# GITHUB generated :
 
 # Logs
 logs

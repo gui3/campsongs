@@ -15,14 +15,15 @@ export default function Song (props) {
     useEffect(_ => {
         fetchData("/api/song/" + id)
         .then(json => {
-            // console.log("json response", json)
+             console.log("json response", json)
             if (json.type === "SONG") {
-                // console.log("set data", json)
+                 console.log("set data", json)
                 setSongData(json.data)
             }
         })
     }, [songId])
 
+    console.log(songData)
     return (
         <>
             <h1>{songData.songName}</h1>

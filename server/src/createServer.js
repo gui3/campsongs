@@ -57,7 +57,7 @@ async function createServer () {
             try {
                 const data = await route.data(req, res, next)
                 res.status(status)
-                res.json(formatThis(data))
+                res.json(formatThis(data, route.type, route.keys))
             }
             catch (error) {
                 res.status(error.status || 500)
@@ -68,7 +68,7 @@ async function createServer () {
             try {
                 const data = route.data(req, res, next)
                 res.status(status)
-                res.json(formatThis(data))
+                res.json(formatThis(data, route.type, route.keys))
             }
             catch (error) {
                 res.status(error.status || 500)
@@ -145,7 +145,7 @@ async function createServer () {
                 console.log(
                     "! app " + (metadata.APP_NAME || "?")
                     + " v" + (metadata.APP_VERSION || "?")
-                    + " listenning on port " + port
+                    + " listening on port " + port
                 )
 
                 resolve(httpserver)

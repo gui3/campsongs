@@ -1,6 +1,7 @@
 // Update with your config settings.
 
 require("dotenv").config()
+const {resolve} = require("path")
 
 /**
  * @type { Object.<string, import("knex").Knex.Config> }
@@ -9,7 +10,7 @@ module.exports = {
   development: {
     client: 'sqlite3',
     connection: {
-      filename: './dev.sqlite3'
+      filename: resolve(__dirname, './dev.sqlite3')
     },
     useNullAsDefault: true,
     migrations: {

@@ -1,6 +1,6 @@
-const connect = require("../database/connect")
+const connect = require("../../server/database/connect")
 
-process.env.NODE_ENV = "production"
+//process.env.NODE_ENV = "production"
 
 const db = connect()
 const query = "SELECT 1"
