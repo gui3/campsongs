@@ -6,7 +6,7 @@ export default function Tool (props) {
         <button className="tool" 
         onClick={props.action}
         >
-            {props.name}
+            {props.children || props.name}
         </button>
     )
 

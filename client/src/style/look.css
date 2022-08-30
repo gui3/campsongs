@@ -1,8 +1,8 @@
 /* look */
 
 /*
-lesser important css attributes
-defining the look and feel of the application
+less important css attributes
+defining the general look and feel of the application
 */
 
 /* global */
@@ -104,3 +104,8 @@ button:focus-visible {
 .card {
   padding: 2em;
 }
+
+.context.dialog * {
+  width: 100%;
+}
+

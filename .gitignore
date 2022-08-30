@@ -1,3 +1,15 @@
+# hand written
+
+.env
+.env*.local
+
+node_modules/
+
+*.sqlite3
+
+
+# github generated :
+
 # Logs
 logs
 *.log

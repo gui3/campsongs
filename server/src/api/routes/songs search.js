@@ -1,17 +1,19 @@
-const path = "/songs/:name"
+const path = "/songs/search"
 const method = "get"
+const type = "SONGS"
 
 async function data (req, res) {
     const {db} = res.locals
 
     const songs = await db("songs")
-    .whereRaw("text LIKE ?", ["%" + req.params.name + "%"])
+    .whereRaw("text LIKE ?", ["%" + req.params.text + "%"])
 
     return songs
 }
 
-export default {
+module.exports = {
     method,
     path,
-    data
+    data,
+    type
 }

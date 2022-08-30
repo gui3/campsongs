@@ -7,6 +7,7 @@ import log from "./scripts/log"
 import fetchData from "./scripts/fetchData";
 import wait from "./scripts/wait"
 import SplashScreen from "./components/SplashScreen";
+import CLIENT_CONFIG from "./scripts/CLIENT_CONFIG";
 
 export default function App() {
   const session = {
@@ -14,7 +15,10 @@ export default function App() {
   }
 
   const [ready, setReady] = useState(false)
-  const [metadata, setMetadata] = useState({})
+  const [metadata, setMetadata] = useState({
+    APP_NAME: CLIENT_CONFIG.DEFAULT_APP_NAME,
+    APP_VERSION: "bug.0.0"
+  })
   const [dev, setDev] = useState({
     ready, setReady,
     FORCE_SPLASH_SCREEN: false
@@ -34,7 +38,7 @@ export default function App() {
 
       async function fetchMetadata () {
         const json = await fetchData("/api/metadata")
-        if (json.type !== "METADATA") {
+        if (json.type !== "CONFIG") {
           log.error(new Error("invalid metadata"))
           log.debug("invalid data", json)
           return 
@@ -48,11 +52,12 @@ export default function App() {
         wait(50), // minimum splash screen time
       ])
       .then(results => {
-        log.debug("app setup successfull")
-        setReady(true)
+        log.debug("app setup finished", results)
       })
       .catch(error => {
         log.error(error)
+      })
+      .finally(_ => {
         setReady(true)
       })
     }
@@ -61,11 +66,11 @@ export default function App() {
   return (
     <MetadataContext.Provider value={metadata}>
 
-      {ready && <Router session={session}/>}
+      <Router ready={ready} session={session}/>
 
       <SplashScreen hidden={!dev.FORCE_SPLASH_SCREEN && ready} />
 
-      <DevToolbox dev={dev}/>
+      <DevToolbox devMode={CLIENT_CONFIG.DEV_MODE} dev={dev}/>
 
     </MetadataContext.Provider>
   )

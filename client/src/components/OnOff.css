@@ -1,0 +1,19 @@
+/* OnOff switch */
+
+.on-off.on {
+    color: green;
+}
+
+.on-off.off {
+    color: blue;
+}
+
+/* big red anormal values */
+.on-off.anormal {
+    color: red;
+    font-weight: bold;
+}
+
+.on-off.anormal::before {
+    content: "! ";
+}

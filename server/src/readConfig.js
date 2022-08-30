@@ -1,9 +1,9 @@
-import { resolve } from "path"
-import { readFileSync } from "fs"
+const {resolve} = require("path")
+const { readFileSync } = require("fs")
 
-function getMetadata () {
+function readConfig (filepath) {
     const raw = readFileSync(
-        resolve(__dirname, "../../METADATA.properties"),
+        filepath,
         {encoding: "utf-8"}
     )
 
@@ -21,5 +21,5 @@ function getMetadata () {
     return data
 }
 
-export default getMetadata
+module.exports = readConfig
 

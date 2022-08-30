@@ -1,0 +1,60 @@
+/* On-Off switches */
+
+.on-off.on::before,
+.on-off.off::before {
+  content: none;
+}
+
+.on-off.on *,
+.on-off.off * {
+  position: relative;
+}
+
+.on-off.on,
+.on-off.off {
+  display: inline-block;
+  position: relative;
+  width: 3em;
+  height: 1.5em;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+}
+
+.on-off.on.no-text,
+.on-off.off.no-text {
+  color: transparent;
+}
+
+.on-off.on {
+  background-color: var(--color-interactive-light, #0d5);
+}
+
+.on-off.off {
+  background-color: var(--color-inactive, #999);
+}
+
+.on-off.on.anormal,
+.on-off.off.anormal {
+  background-color: var(--color-important, #f44);
+}
+
+.on-off.on::before,
+.on-off.off::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 40%;
+  height: 80%;
+  top: 10%;
+  background-color: var(--color-lightest, white);
+  transition: left 700ms ease 0ms;
+}
+
+.on-off.on::before {
+  left: 55%; /* 100% - 40% - 5% */
+}
+
+.on-off.off::before {
+  left: 5%;
+}

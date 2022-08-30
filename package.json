@@ -5,9 +5,10 @@
     "start": "cd server && npm start",
     "build": "cd client && npm run build",
     "install": "cd client && npm install && cd ../server && npm install",
-    "dev-client": "cd client && npm run dev",
+    "client-dev": "cd client && npm run dev",
+    "client-prod": "cd client && npm run prod",
     "dev-setup": "cd server && npm run knex migrate:up",
-    "dev-start": "npm run build && npm run start",
+    "dev-start": "npm run dev-build && npm run start",
     "prod-test-db": "cd server && npm run prod-test-db", 
     "prod-setup": "cd server && npm run prod-migrate",
     "prod-start": "npm run build && cd server && npm run prod-start"

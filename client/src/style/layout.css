@@ -60,7 +60,7 @@ body {
     pointer-events: initial;
 }
 
-.context-dialog {
+.context.dialog {
     display: inline-block;
     border: 2px solid var(--color-dark, #222)
 }

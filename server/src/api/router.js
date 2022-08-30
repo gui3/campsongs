@@ -2,12 +2,12 @@ const express = require("express")
 const { readdirSync } = require("fs")
 const { resolve } = require("path")
 const format = require("./format")
-const createRoutes = require("./createRoutes")
+const autoRoutes = require("./autoRoutes")
 
 const router = new express.Router()
 
 const routeroot = resolve(__dirname, "./routes")
-createRoutes(router, routeroot)
+router = autoRoutes(router, routeroot)
 
 // api 404
 router.use((req, res) => {

@@ -3,7 +3,7 @@ const { readdirSync } = require("fs")
 const { resolve } = require("path")
 const format = require("./format")
 
-function createRoutes (router, routesPath) {
+function autoRoutes (router, routesPath) {
     const routefiles = readdirSync(routesPath)
 
     /* automatic api routes generation */
@@ -11,8 +11,10 @@ function createRoutes (router, routesPath) {
         try {
             const routefilepath = resolve(routesPath, routefilename)
             const route = require(routefilepath)
-            router[route.method || "get"](route.path, async (req, res) => {
-                const data = await route.data(req, res)
+            console.log("create route", route)
+            router[route.method || "get"](route.path, async function (req, res, next, err) {
+                console.log("use route", route)
+                const data = await route.data(req, res, next, err)
 
                 res.status(200)
                 res.json(format.data(data, {
@@ -27,6 +29,7 @@ function createRoutes (router, routesPath) {
             throw new Error(error)
         }
     })
+    return router
 }
 
-module.exports = createRoutes
+module.exports = autoRoutes

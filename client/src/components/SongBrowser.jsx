@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom";
-import CLIENT_CONFIG from "../CLIENT_CONFIG"
 import fetchData from "../scripts/fetchData";
 import log from "../scripts/log"
 
@@ -52,7 +51,7 @@ export default function SongBrowser (props) {
                 {songs && songs.map && songs.map((song, ix) => {
                     return (
                     <li key={ix}>
-                        <Link to={"/song/" + song.songName}>
+                        <Link to={"/song/" + song.songId}>
                             <h4>{song.songName}</h4>
                             <p>{song.author}</p>
                         </Link>

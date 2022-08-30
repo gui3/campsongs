@@ -1,9 +1,14 @@
+/**
+ * This script alows formatting a raw svg logo (from figma)
+ * into an existing react component
+ */
+
 import { readFileSync, writeFileSync } from "fs"
 import { dirname, resolve } from 'path'
 import { fileURLToPath } from 'url'
 
-const RAW_SVG_PATH = "../global/logos/fireside.svg"
-const REACT_COMPONENT_PATH = "../global/logos/AppLogoSvg.jsx"
+const RAW_SVG_PATH = "../../global/logos/fireside.svg"
+const REACT_COMPONENT_PATH = "../../global/logos/AppLogoSvg.jsx"
 const MARKER_COMMENT = "PASTE_SVG_HERE"
 
 const __dirname = dirname(fileURLToPath(import.meta.url))

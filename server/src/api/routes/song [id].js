@@ -1,12 +1,13 @@
-const path = "/songs/:name"
+const path = "/song/:id"
 const method = "get"
 const type = "SONGS"
 
-async function data (req, res) {
+async function data (req, res, next) {
     const {db} = res.locals
-
+    const id = req.params.id
+    if (!id) next(new Error("invalid id: " + id))
     const songs = await db("songs")
-    .whereRaw("text LIKE ?", ["%" + req.params.name + "%"])
+    .whereRaw("id = ?", [req.params.id])
 
     return songs
 }

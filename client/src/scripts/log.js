@@ -2,12 +2,13 @@
  * creates a shareable instance of logger
  */
 
-import CLIENT_CONFIG from "../CLIENT_CONFIG"
+import CLIENT_CONFIG from "./CLIENT_CONFIG"
 
 const log = {
     history: [],
     memory: CLIENT_CONFIG.LOG_MEMORY,
-    DEBUG_MODE: CLIENT_CONFIG.START_IN_DEBUG_MODE, // will be set at startup
+    DEBUG_MODE: CLIENT_CONFIG.DEV_MODE 
+    && CLIENT_CONFIG.START_IN_DEBUG_MODE, // will be set at startup
     // console quick styles:
     style: {
         big: "font-size: 2em; font-weight: bold",
@@ -17,9 +18,9 @@ const log = {
 }
 
 log.register = CLIENT_CONFIG.DEV_MODE
-? function (data, css) { // only if DEV_MODE
+? function (data, args) { // only if DEV_MODE
     log.history = [
-        {data, tag: "debug", css},
+        {data, tag: "debug", args},
         ...log.history.slice(0, log.memory - 1)
     ]
 }
@@ -28,7 +29,7 @@ log.register = CLIENT_CONFIG.DEV_MODE
 /** shows message only if DEBUG_MODE is true */
 log.debug = function (data, ...args) {
     log.DEBUG_MODE && console.log(data, ...args)
-    log.register(data)
+    log.register(data, args)
 }
 
 /** shows message anyways */
