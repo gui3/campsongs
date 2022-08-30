@@ -2,11 +2,7 @@
 # helps parser of older or newer versions
 
 # dev image
-# usefull commands:
-#   docker build --file Dockerfile.dev --tag songbook:DEV .
-#   docker run --rm --env-file ./server/.env --name songbook_dev songbook:DEV
-#   docker stop songbook_dev
-#   docker rmi songbook:DEV
+# see ./scripts/docker to build, run and stop
 
 FROM node:16-alpine
 # https://hub.docker.com/_/node/

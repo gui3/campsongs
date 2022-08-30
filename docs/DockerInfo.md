@@ -1,4 +1,4 @@
-## docker commands for this project
+## docker commands
 
 ```sh
 # build development image
@@ -12,6 +12,7 @@ docker run \
     --env-file ./server/.env \
     --name songbook \
     --rm \
+    --publish 8080:8080
     songbook:version
 
 # stop & remove container
