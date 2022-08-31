@@ -1,5 +1,9 @@
 #!/usr/bin/env sh
-cd $(dirname "$0") # goto <root>/scripts
+
+# goto script directory
+FILE_DIR=$(dirname $(readlink -f "$0"))
+cd $FILE_DIR
+cd ..
 
 echo ">> updating logo"
 node ./node/update_logo.mjs

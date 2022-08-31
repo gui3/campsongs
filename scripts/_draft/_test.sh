@@ -1,7 +1,5 @@
 #!/usr/bin/env sh
 
+[[ $test == "" ]] && test="hello"
 
-
-echo hello
-
-echo $NODE_ENV
+echo $test

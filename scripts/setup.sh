@@ -4,9 +4,11 @@
 # prepares the environment for the app
 # (install dependancies, verify & migrate database...)
 
-cd $(dirname "$0") # goto this file directory
+# goto script directory
+[[ $DIR_SCRIPTS == "" ]] && DIR_SCRIPTS=$(dirname $(readlink -f "$0"))
+cd $DIR_SCRIPTS
 
-source ./util/set_env.sh
+source ./util/env_check.sh
 
 # npm installs
 echo ">> dependencies"
@@ -19,7 +21,8 @@ npm install
 
 # database setup
 echo ">> database setup"
-../scripts/test_db_connection.sh
+source ../scripts/test_db_connection.sh
 
 echo ">> migrate to latest - mode development"
-npm run knex migrate:latest -- --env development
+NODE_ENV=$NODE_ENV npm run knex migrate:latest 
+# -- --env development
