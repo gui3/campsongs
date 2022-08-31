@@ -1,9 +1,8 @@
 #!/usr/bin/env sh
 
 # goto script directory
-FILE_DIR=$(dirname $(readlink -f "$0"))
-cd $FILE_DIR
-cd ..
+[[ $DIR_SCRIPTS == "" ]] && DIR_SCRIPTS=$(dirname $(dirname $(readlink -f "$0")))
+cd $DIR_SCRIPTS
 
 echo ">> updating logo"
 node ./node/update_logo.mjs
