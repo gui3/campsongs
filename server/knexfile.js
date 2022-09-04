@@ -14,11 +14,11 @@ module.exports = {
     },
     useNullAsDefault: true,
     migrations: {
-      directory: "./database/migrations"
+      directory: "./src/database/migrations"
       //tableName: 'knex_migrations'
     },
     seeds: {
-        directory: './database/seeds'
+        directory: './src/database/seeds'
     }
   },
 
@@ -36,11 +36,11 @@ module.exports = {
       max: 10
     },
     migrations: {
-      directory: "./database/migrations"
+      directory: "./src/database/migrations"
       //tableName: 'knex_migrations'
     },
     seeds: {
-        directory: './database/seeds'
+        directory: './src/database/seeds'
     }
   },
 
@@ -58,11 +58,11 @@ module.exports = {
       max: 10
     },
     migrations: {
-      directory: "./database/migrations"
+      directory: "./src/database/migrations"
       //tableName: 'knex_migrations'
     },
     seeds: {
-        directory: './database/seeds'
+        directory: './src/database/seeds'
     }
   }
 };

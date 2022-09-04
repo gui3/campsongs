@@ -2,10 +2,13 @@
 const express = require("express")
 const {resolve} = require("path")
 
-const connect = require("../database/connect")
+const connect = require("./database/connect")
+const test = require("./database/test")
 const readConfig = require("./readConfig")
 
 async function createServer () {
+    test()
+
     /* es6 modules import */
     const { default: routes } 
     = await import("../../global/api/routes.mjs")
@@ -23,6 +26,9 @@ async function createServer () {
         console.log("> " + req.method + " " + req.url)
         next()
     })
+
+    // auth token
+
 
     // statics
     app.use(express.static(resolve(__dirname, "../../client/dist")))

@@ -5,9 +5,11 @@
 # ALL DATA WILL BE LOST
 # TO BE USED IN DEVELOPMENT ONLY
 
-cd $(dirname "$0") # goto this file directory
+# goto script directory
+[[ $DIR_SCRIPTS == "" ]] && DIR_SCRIPTS=$(dirname $(dirname $(readlink -f "$0")))
+cd $DIR_SCRIPTS
 
-NODE_ENV=development
+source ./util/env_only_development.sh
 
-./dangerous_clean.sh
+./danger/clean.sh
 ./setup.sh

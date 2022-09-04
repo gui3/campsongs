@@ -21,8 +21,9 @@ npm install
 
 # database setup
 echo ">> database setup"
-source ../scripts/test_db_connection.sh
+source ../scripts/util/test_db_connection.sh
 
-echo ">> migrate to latest - mode development"
+echo ">> migrate to latest - mode $NODE_ENV"
+cd ../server
 NODE_ENV=$NODE_ENV npm run knex migrate:latest 
 # -- --env development

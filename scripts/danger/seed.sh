@@ -4,14 +4,16 @@
 # seeds the database (inject fake data)
 # TO BE USED IN DEVELOPMENT ONLY
 
-cd $(dirname "$0") # goto this file directory
+# goto script directory
+[[ $DIR_SCRIPTS == "" ]] && DIR_SCRIPTS=$(dirname $(dirname $(readlink -f "$0")))
+cd $DIR_SCRIPTS
 
-source ../util/only_development.sh
+source ./util/env_only_development.sh
 
 # database setup
-../test_db_connection.sh
+./util/test_db_connection.sh
 
 
 echo ">> seed - mode $NODE_ENV"
-cd ../../server
+cd ../server
 npm run knex seed:run -- --env "$NODE_ENV"

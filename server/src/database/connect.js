@@ -1,5 +1,5 @@
 const knex = require("knex")
-const knexfile = require("../knexfile")
+const knexfile = require("../../knexfile")
 
 function connect () {
     const config = process.env.NODE_ENV === "production" 
