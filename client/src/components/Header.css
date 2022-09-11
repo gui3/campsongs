@@ -1,6 +1,7 @@
 header * {
     flex: 1;
     display: inline-block;
+    color: var(--color-primary, #840);
 }
 
 header {
@@ -8,11 +9,4 @@ header {
     align-items: center;
     justify-content: space-between;
     _border-bottom: 2px solid var(--color-primary, #944);
-}
-
-.sitename {
-    font-family: cursive;
-    font-size: 1.3em;
-    font-weight: bold;
-    color: var(--color-primary, #944);
 }

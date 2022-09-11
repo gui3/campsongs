@@ -3,6 +3,7 @@ const {Router} = require("express")
 const authRouter = new Router()
 
 authRouter.post("/login", (req, res) => {
+    
 
     const maxAge = 60 * 60 * 24 * 10 // 10 days
 

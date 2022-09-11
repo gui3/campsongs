@@ -31,6 +31,11 @@
     position: relative;
 }
 
+.view {
+    flex: 1;
+    position: relative;
+}
+
 .page {
     flex: 1;
     overflow-y: auto;

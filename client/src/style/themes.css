@@ -1,3 +1,6 @@
+svg.icon {
+  fill: #fd9;
+}
 
 @media (prefers-color-scheme: light) {
   :root {
