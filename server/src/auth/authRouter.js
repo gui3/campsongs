@@ -12,4 +12,8 @@ authRouter.post("/login", (req, res) => {
     );
 })
 
+authRouter.get("/auth", (req, res) => {
+    console.log("cookie", req.cookie)
+})
+
 module.exports = authRouter
