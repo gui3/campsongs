@@ -17,7 +17,7 @@ const Layout = (props) => {
   }
 
   return (
-    <div className="container">
+    <div className="app container bg-strong">
       <Header session={session} 
       togglePanel={togglePanel}/>
 

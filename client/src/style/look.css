@@ -14,14 +14,17 @@ defining the general look and feel of the application
   font-weight: 400;
 
   color-scheme: light dark;
-  color: var(--color-lightest, #fff); /*_rgba(255, 255, 255, 0.87); */
-  background-color: var(--color-dark, #242424);
+  background-color: var(--color-backest, #fff);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+
+#root {
+  color: var(--color-front, #000); /*_rgba(255, 255, 255, 0.87); */
 }
 
 h1, h2, h3, .sitename {
@@ -63,11 +66,11 @@ article {
 
 a {
   font-weight: 500;
-  color: var(--color-interactive-light, #646cff);
+  color: var(--color-clickable, #840);
   text-decoration: inherit;
 }
 a:hover {
-  color: var(--color-interactive-dark, #535bf2);
+  color: var(--color-focus, #f40);
 }
 
 button {
@@ -93,8 +96,8 @@ button:focus-visible {
 */
 
 button.button {
-  background: #840;
-  color: #fff;
+  background: var(--color-clickable, #840);
+  color: var(--color-backest, #fff);
   font-weight: bold;
   border-radius: 5px 15px 8px 12px;
   transform: rotate(-1.5deg);
@@ -106,22 +109,22 @@ button.button * {
   transform: rotate(1.5deg);
 }
 
-button.button:hover {
-  background: #f40;
-}
-
-button.button:active,
+button.button:hover,
 button.button:focus {
-  background: #fc0;
+  background: var(--color-focus, #f40);
 }
 
-button:hover svg.icon {
-  fill: #f40;
+button.button:active {
+  background: var(--color-active, #fc0);
 }
 
-button:active svg.icon,
+button:hover svg.icon,
 button:focus svg.icon {
-  fill: #fc0;
+  fill: var(--color-focus, #f40);
+}
+
+button:active svg.icon {
+  fill: var(--color-active, #fc0);
 }
 
 /* look classes */
@@ -131,11 +134,11 @@ button:focus svg.icon {
 }
 
 .bg-smooth {
-  background-color: var(--color-dark, #333);
+  background-color: var(--color-back, #fed);
 }
 
 .bg-strong {
-  background-color: var(--color-darkest, #222);
+  background-color: var(--color-backest, #fff);
 }
 
 .logo {

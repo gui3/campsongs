@@ -1,7 +1,7 @@
 header * {
     flex: 1;
     display: inline-block;
-    color: var(--color-primary, #840);
+    color: var(--color-clickable, #840);
 }
 
 header {

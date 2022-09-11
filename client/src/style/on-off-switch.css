@@ -16,7 +16,7 @@
   position: relative;
   width: 3em;
   height: 1.5em;
-  color: black;
+  color: var(--color-front, #222);
   font-weight: bold;
   text-align: center;
 }
@@ -27,7 +27,7 @@
 }
 
 .on-off.on {
-  background-color: var(--color-interactive-light, #0d5);
+  background-color: var(--color-active, #0d5);
 }
 
 .on-off.off {
@@ -47,7 +47,7 @@
   width: 40%;
   height: 80%;
   top: 10%;
-  background-color: var(--color-lightest, white);
+  background-color: var(--color-backest, #fff);
   transition: left 700ms ease 0ms;
 }
 

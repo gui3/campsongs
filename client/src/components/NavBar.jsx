@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import ThemeSwitch from "./ThemeSwitch";
 import Tool from "./Tool";
 
 export default function NavBar (props) {
@@ -14,6 +15,7 @@ export default function NavBar (props) {
                     <Tool action={props.togglePanel} 
                     name="Browser"/>
                 </li>
+                <ThemeSwitch/>
             </ul>
         </nav>
     )

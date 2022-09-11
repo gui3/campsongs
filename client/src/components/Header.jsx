@@ -7,7 +7,7 @@ import { MetadataContext } from "./Contexts";
 export default function Header (props) {
 
     return (
-        <header className="Header bg-smooth">
+        <header className="Header bg-strong">
             <Link to="/">
                 <span className="sitename">
                     <MetadataContext.Consumer>

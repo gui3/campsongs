@@ -82,7 +82,7 @@ body {
 
 .context.dialog {
     display: inline-block;
-    border: 2px solid var(--color-dark, #222)
+    border: 2px solid var(--color-front, #222)
 }
 
 .position-absolute {
