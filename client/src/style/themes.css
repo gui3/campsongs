@@ -2,26 +2,26 @@ svg.icon {
   fill: var(--color-back, #fd9);
 }
 
-:_root,
+:root,
 :root .theme-light {
   --color-front: #222;
   --color-frontest: #000;
-  --color-back: #fd9;
+  --color-back: #fec;
   --color-backest: #fff;
   --color-clickable: #840;
   --color-focus: #f40;
-  --color-active: #fc0;
+  --color-active: #fc6;
   --color-inactive: #888;
 }
 
 :root .theme-dark {
   --color-front: #eee;
   --color-frontest: #fff;
-  --color-back: #29292f;
+  --color-back: #2f2f39;/*#29292f;*/
   --color-backest: #222;
   --color-clickable: #eef;
   --color-focus: #5ef;
-  --color-active: #fc0;
+  --color-active: #fc6;
   --color-inactive: #888;
 }
 
@@ -32,7 +32,7 @@ svg.icon {
   --color-backest: #cdbaa0;
   --color-clickable: #443828;
   --color-focus: #0a4;
-  --color-active: #fc0;
+  --color-active: #fc6;
   --color-inactive: #888;
 }
 

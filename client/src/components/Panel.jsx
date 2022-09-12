@@ -6,7 +6,7 @@ export default function Panel (props) {
     const session = props.session
 
     return (
-        <aside className={`Aside panel bg-smooth ${props.hidden ? "hidden" : ""}`}>
+        <aside className={`Aside panel bg-strong ${props.hidden ? "hidden" : ""}`}>
             <SongBrowser />
             
         </aside>

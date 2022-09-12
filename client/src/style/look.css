@@ -14,7 +14,6 @@ defining the general look and feel of the application
   font-weight: 400;
 
   color-scheme: light dark;
-  background-color: var(--color-backest, #fff);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -23,7 +22,8 @@ defining the general look and feel of the application
   -webkit-text-size-adjust: 100%;
 }
 
-#root {
+body {
+  background-color: var(--color-backest, #fff);
   color: var(--color-front, #000); /*_rgba(255, 255, 255, 0.87); */
 }
 
@@ -42,6 +42,33 @@ h2 {
 
 h3 {
   font-size: 3rem;
+}
+
+h4 {
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+p {
+  font-size: 1rem;
+}
+
+input, textarea {
+  color: var(--color-front, #222);
+  background: var(--color-backest, #fff);
+  border: none;
+  outline: none;
+  border-bottom: 3px solid var(--color-clickable, #840);
+  border-bottom: 3px dashed var(--color-clickable, #840);
+  border-radius: 5px 15px 0 0;
+  margin: 0.5rem;
+  font-size: 1.1rem;
+  padding: 0.3rem;
+}
+
+input:focus, textarea:focus {
+  background: var(--color-back, #fec);
+  border-color: var(--color-focus, #f40);
 }
 
 .sitename {
@@ -95,16 +122,26 @@ button:focus-visible {
 }
 */
 
-button.button {
-  background: var(--color-clickable, #840);
-  color: var(--color-backest, #fff);
-  font-weight: bold;
+button.button,
+.card {
   border-radius: 5px 15px 8px 12px;
   transform: rotate(-1.5deg);
   margin: 0.5rem;
 }
 
-button.button * {
+button.button {
+  background: var(--color-clickable, #840);
+  color: var(--color-backest, #fff);
+  font-weight: bold;
+}
+
+.card {
+  padding: 0.3rem;
+  border: 3px solid var(--color-front, #222);
+}
+
+button.button > *,
+.card > * {
   display: block;
   transform: rotate(1.5deg);
 }
@@ -141,6 +178,12 @@ button:active svg.icon {
   background-color: var(--color-backest, #fff);
 }
 
+.context.dialog * {
+  width: 100%;
+}
+
+/* vite css */
+
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -155,10 +198,60 @@ button:active svg.icon {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-.card {
-  padding: 2em;
+/* Scrollbars */
+
+/* Works on Firefox */
+* {
+  scrollbar-width: 0.8rem;
+  scrollbar-color: 
+    var(--color-clickable, #840)
+    var(--color-back, #fd9);
 }
 
-.context.dialog * {
-  width: 100%;
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 0.7rem;
+  height: 0.7rem;
+  outline: 2px solid var(--color-inactive, #222);
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--color-back, #fd9);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    45deg,
+    var(--color-clickable, #840),
+    var(--color-focus, #f40)
+  );
+}
+
+*::-webkit-scrollbar-button {
+  background: var(--color-back, #fd9);
+  border-style: solid;
+  height: 0.7rem;
+  width: 0.7rem;
+}
+
+*::-webkit-scrollbar-corner {
+  background: var(--color-back, #fd9);
+}
+
+::-webkit-scrollbar-button:single-button:decrement {
+  border-width: 0 0.35rem 0.35rem 0.35rem;
+  border-color: transparent transparent var(--color-clickable, #840) transparent;
+}
+
+::-webkit-scrollbar-button:single-button:decrement:hover {
+  border-color: transparent transparent var(--color-focus, #f40) transparent;
+}
+
+::-webkit-scrollbar-button:single-button:increment {
+  border-width: 0.35rem 0.35rem 0 0.35rem;
+  border-color: var(--color-clickable, #840) transparent transparent transparent;
+}
+
+::-webkit-scrollbar-button:single-button:increment:hover {
+  border-color: var(--color-focus, #f40) transparent transparent transparent;
 }

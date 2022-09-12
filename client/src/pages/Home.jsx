@@ -19,7 +19,7 @@ function Home() {
           is a place to share
           your favorite song lyrics and chords.
         </p>
-        <div className="card">
+        <div className="">
           <button className="button"
           onClick={() => setCount((count) => count + 1)}>
             <span>count is {count}</span>

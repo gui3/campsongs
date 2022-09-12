@@ -7,6 +7,39 @@
     height: 100%;
 }
 
+/* themes */
+
+.AppLogo .wood .light-bl,
+.AppLogo .wood .light-br {
+    fill: var(--color-active)
+}
+
+.AppLogo .wood .dark-bl,
+.AppLogo .wood .dark-br,
+.AppLogo .wood .dark-tl,
+.AppLogo .wood .dark-tr {
+    fill: var(--color-clickable)
+}
+
+.AppLogo .fire .flames-bottom *,
+.AppLogo .fire .flames-top *,
+.AppLogo .fire .red-center,
+.AppLogo .fire .red-top {
+    fill: var(--color-focus)
+}
+
+.AppLogo .fire .yellow {
+    fill: var(--color-active);
+    fill-opacity: 0.8;
+}
+
+.AppLogo .fire .white {
+    fill: var(--color-backest);
+    fill-opacity: 1;
+}
+
+/* animations */
+
 .dynamic .flames-top path {
     animation: 1.5s linear infinite alternate flames-rotate;
     animation: 1.24s linear infinite alternate-reverse flames-skew;

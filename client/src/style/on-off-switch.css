@@ -27,7 +27,7 @@
 }
 
 .on-off.on {
-  background-color: var(--color-active, #0d5);
+  background-color: var(--color-focus, #0d5);
 }
 
 .on-off.off {

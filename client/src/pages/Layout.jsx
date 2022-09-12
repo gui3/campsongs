@@ -21,9 +21,14 @@ const Layout = (props) => {
       <Header session={session} 
       togglePanel={togglePanel}/>
 
+      <hr className="separator"/>
+
       <div className="application">
         <Panel session={session} 
         hidden={hiddenPanel}/>
+
+        
+
         <div className="view">
           <Watermark/>
           <main className="page position-relative top bottom left right">
