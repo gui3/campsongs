@@ -5,25 +5,27 @@
 # (install dependancies, verify & migrate database...)
 
 # goto script directory
-[[ $DIR_SCRIPTS == "" ]] && DIR_SCRIPTS=$(dirname $(readlink -f "$0"))
-cd $DIR_SCRIPTS
+#[[ $DIR_SCRIPTS == "" ]] && DIR_SCRIPTS=$(dirname $(readlink -f "$0"))
+#cd $DIR_SCRIPTS
 
-source ./util/env_check.sh
+source ${SONGDIR}scripts/util/env_check.sh
 
 # npm installs
 echo ">> dependencies"
 echo ">> install client"
-cd ../client
+cd ${SONGDIR}client
 npm install
 echo ">> install server"
-cd ../server
+cd ${SONGDIR}server
 npm install
+
+cd ..
 
 # database setup
 echo ">> database setup"
-source ../scripts/util/test_db_connection.sh
+. ${SONGDIR}scripts/util/test_db_connection.sh
 
 echo ">> migrate to latest - mode $NODE_ENV"
-cd ../server
+cd ${SONGDIR}server
 NODE_ENV=$NODE_ENV npm run knex migrate:latest 
 # -- --env development

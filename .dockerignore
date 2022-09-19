@@ -18,6 +18,8 @@
 
 # ! to be excluded from container images
 
+**/.git
+
 # docs
 # globals
 
