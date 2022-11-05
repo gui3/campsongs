@@ -1,13 +1,13 @@
 /* variables */
-:root {
+#root {
   --color-light: #fec;
   --color-lighter: #fff9f0;
   --color-lightest: #fff;
-  --color-dark: #242424;
-  --color-darkest: #1e1e1e;
-  --color-primary: #944;
-  --color-interactive-dark: #535bf2;
-  --color-interactive-light: #747bff;
+  --color-dark: #333338;
+  --color-darkest: #222;
+  --color-primary: #840;
+  --color-interactive-dark: #f40;
+  --color-interactive-light: #fc0;
 
   /* media queries values */
   /* only for developper information (unusable in media queries) */

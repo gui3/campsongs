@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import { useState } from "react";
 import Header from "../components/Header";
 import Panel from "../components/Panel";
+import Watermark from "../components/Watermark"
 import "./Layout.css"
 
 const Layout = (props) => {
@@ -16,17 +17,24 @@ const Layout = (props) => {
   }
 
   return (
-    <div className="container">
+    <div className="app container bg-strong">
       <Header session={session} 
       togglePanel={togglePanel}/>
+
+      <hr className="separator"/>
 
       <div className="application">
         <Panel session={session} 
         hidden={hiddenPanel}/>
 
-        <main className="page bg-strong">
-          <Outlet />
-        </main>
+        
+
+        <div className="view">
+          <Watermark/>
+          <main className="page position-relative top bottom left right">
+            <Outlet />
+          </main>
+        </div>
       </div>
     </div>
   )

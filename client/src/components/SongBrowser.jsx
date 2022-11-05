@@ -37,10 +37,10 @@ export default function SongBrowser (props) {
     }
 
     return (
-        <div>
-            <h3>Song Browser</h3>
+        <div className="responsive-padding">
             <div>
-                <input type="text" placeholder="seach songs" 
+                <input type="text" placeholder="> search songs"
+                className=""
                 value={status.text} 
                 onChange={onChange}
                 onKeyUp={e => (e.key === 'Enter' || e.keyCode === 13) && search()}
@@ -50,10 +50,11 @@ export default function SongBrowser (props) {
             <ol>
                 {songs && songs.map && songs.map((song, ix) => {
                     return (
-                    <li key={ix}>
+                    <li key={ix} className="card">
                         <Link to={"/song/" + song.songId}>
-                            <h4>{song.songName}</h4>
-                            <p>{song.author}</p>
+                            <h4>
+                                {song.songName} - {song.author}
+                            </h4>
                         </Link>
                     </li>
                 )})}

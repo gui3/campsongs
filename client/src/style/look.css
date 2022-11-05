@@ -8,20 +8,72 @@ defining the general look and feel of the application
 /* global */
 
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Martel_sans, Inter, Avenir, Helvetica, sans-serif;
   font-size: 16px;
-  line-height: 24px;
+  /*line-height: 24px;*/
   font-weight: 400;
 
   color-scheme: light dark;
-  color: var(--color-lightest, #fff); /*_rgba(255, 255, 255, 0.87); */
-  background-color: var(--color-dark, #242424);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-backest, #fff);
+  color: var(--color-front, #000); /*_rgba(255, 255, 255, 0.87); */
+}
+
+h1, h2, h3, .sitename {
+  font-family: Amatic_SC, serif;
+  margin: 0;
+}
+
+h1 {
+  font-size: 5rem;
+}
+
+h2 {
+  font-size: 4rem;
+}
+
+h3 {
+  font-size: 3rem;
+}
+
+h4 {
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+p {
+  font-size: 1rem;
+}
+
+input, textarea {
+  color: var(--color-front, #222);
+  background: var(--color-backest, #fff);
+  border: none;
+  outline: none;
+  border-bottom: 3px solid var(--color-clickable, #840);
+  border-bottom: 3px dashed var(--color-clickable, #840);
+  border-radius: 5px 15px 0 0;
+  margin: 0.5rem;
+  font-size: 1.1rem;
+  padding: 0.3rem;
+}
+
+input:focus, textarea:focus {
+  background: var(--color-back, #fec);
+  border-color: var(--color-focus, #f40);
+}
+
+.sitename {
+  font-size: 1.8rem;
+  font-weight: 700;
 }
 
 ul, ol {
@@ -41,21 +93,16 @@ article {
 
 a {
   font-weight: 500;
-  color: var(--color-interactive-light, #646cff);
+  color: var(--color-clickable, #840);
   text-decoration: inherit;
 }
 a:hover {
-  color: var(--color-interactive-dark, #535bf2);
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  color: var(--color-focus, #f40);
 }
 
 button {
   border-radius: 8px;
-  border: 1px solid transparent;
+  border: none; /*1px solid transparent;*/
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
@@ -63,14 +110,58 @@ button {
   background-color: inherit; /* var(--color-darkest, #1a1a1a); */
   color: inherit;/* var(--color-lightest, #fff); */
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: all 0.25s;
 }
+/*
 button:hover {
   border-color: var(--color-interactive-light, #646cff);
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+*/
+
+button.button,
+.card {
+  border-radius: 5px 15px 8px 12px;
+  transform: rotate(-1.5deg);
+  margin: 0.5rem;
+}
+
+button.button {
+  background: var(--color-clickable, #840);
+  color: var(--color-backest, #fff);
+  font-weight: bold;
+}
+
+.card {
+  padding: 0.3rem;
+  border: 3px solid var(--color-front, #222);
+}
+
+button.button > *,
+.card > * {
+  display: block;
+  transform: rotate(1.5deg);
+}
+
+button.button:hover,
+button.button:focus {
+  background: var(--color-focus, #f40);
+}
+
+button.button:active {
+  background: var(--color-active, #fc0);
+}
+
+button:hover svg.icon,
+button:focus svg.icon {
+  fill: var(--color-focus, #f40);
+}
+
+button:active svg.icon {
+  fill: var(--color-active, #fc0);
 }
 
 /* look classes */
@@ -80,12 +171,18 @@ button:focus-visible {
 }
 
 .bg-smooth {
-  background-color: var(--color-dark, #333);
+  background-color: var(--color-back, #fed);
 }
 
 .bg-strong {
-  background-color: var(--color-darkest, #222);
+  background-color: var(--color-backest, #fff);
 }
+
+.context.dialog * {
+  width: 100%;
+}
+
+/* vite css */
 
 .logo {
   height: 6em;
@@ -101,11 +198,60 @@ button:focus-visible {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-.card {
-  padding: 2em;
+/* Scrollbars */
+
+/* Works on Firefox */
+* {
+  scrollbar-width: 0.8rem;
+  scrollbar-color: 
+    var(--color-clickable, #840)
+    var(--color-back, #fd9);
 }
 
-.context.dialog * {
-  width: 100%;
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 0.7rem;
+  height: 0.7rem;
+  outline: 2px solid var(--color-inactive, #222);
 }
 
+*::-webkit-scrollbar-track {
+  background: var(--color-back, #fd9);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    45deg,
+    var(--color-clickable, #840),
+    var(--color-focus, #f40)
+  );
+}
+
+*::-webkit-scrollbar-button {
+  background: var(--color-back, #fd9);
+  border-style: solid;
+  height: 0.7rem;
+  width: 0.7rem;
+}
+
+*::-webkit-scrollbar-corner {
+  background: var(--color-back, #fd9);
+}
+
+::-webkit-scrollbar-button:single-button:decrement {
+  border-width: 0 0.35rem 0.35rem 0.35rem;
+  border-color: transparent transparent var(--color-clickable, #840) transparent;
+}
+
+::-webkit-scrollbar-button:single-button:decrement:hover {
+  border-color: transparent transparent var(--color-focus, #f40) transparent;
+}
+
+::-webkit-scrollbar-button:single-button:increment {
+  border-width: 0.35rem 0.35rem 0 0.35rem;
+  border-color: var(--color-clickable, #840) transparent transparent transparent;
+}
+
+::-webkit-scrollbar-button:single-button:increment:hover {
+  border-color: var(--color-focus, #f40) transparent transparent transparent;
+}

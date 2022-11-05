@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import fetchData from "../scripts/fetchData"
+import log from "../scripts/log"
 
 
 export default function Song (props) {
@@ -15,13 +16,17 @@ export default function Song (props) {
     useEffect(_ => {
         fetchData("/api/song/" + id)
         .then(json => {
-             console.log("json response", json)
+             log.debug("json response", json)
             if (json.type === "SONG") {
-                 console.log("set data", json)
+                 log.debug("set data", json)
                 setSongData(json.data)
             }
         })
     }, [songId])
+
+    useEffect(_ => {
+        
+    }, [songData])
 
     console.log(songData)
     return (
