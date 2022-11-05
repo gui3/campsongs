@@ -7,7 +7,6 @@ const test = require("./database/test")
 const readConfig = require("./readConfig")
 
 async function createServer () {
-    //test()
 
     /* es6 modules import */
     const { default: routes } 

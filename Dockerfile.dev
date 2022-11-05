@@ -12,8 +12,12 @@ ENV NODE_ENV=development
 
 WORKDIR /app
 # allows relative paths
+ENV SONGDIR=/app/
 
-COPY . .
+COPY . ./
+# debug
+RUN ls -laR ./
+RUN echo ">>> WORKDIR: " $(pwd)
 
 RUN ./scripts/setup.sh
 RUN NODE_ENV=development ./scripts/danger/seed.sh
